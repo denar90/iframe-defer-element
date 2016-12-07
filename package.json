@@ -1,0 +1,37 @@
+{
+  "name": "defered-iframe-element",
+  "version": "1.0.0",
+  "description": "Iframe custom element. Makes iframe not render blocking, increases your page loading speed.",
+  "main": "dist/index.js",
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "iframe",
+    "defer"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && babel src/index.js --out-file dist/index.js --presets=es2015 --plugins=transform-custom-element-classes,transform-es2015-classes --source-maps inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denar90/defered-iframe-element.git"
+  },
+  "authors": [
+    "denar90",
+    "shvaikalesh"
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "demo"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/denar90/defered-iframe-element#readme",
+  "bugs": "https://github.com/brunch/denar90/defered-iframe-element",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-custom-element-classes": "^0.1.0",
+    "babel-plugin-transform-es2015-classes": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0"
+  }
+}
