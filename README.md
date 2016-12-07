@@ -4,7 +4,7 @@ Iframe custom element. Makes iframe not render blocking, increases your page loa
 
 ## Demo
 
-[Check it live!](https://denar90.github.io/defered-iframe-element/demo)
+[Check it live!](https://denar90.github.io/defered-iframe-element/demo/)
 
 ## Install
 
