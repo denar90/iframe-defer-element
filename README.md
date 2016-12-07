@@ -41,6 +41,8 @@ Attribute     | Options     | Default  | Description
 
 ```sh
 $ npm run build
+$ git add -f dist
+$ git commit -m 'deploy build'
 ```
 
 ## History
