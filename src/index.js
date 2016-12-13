@@ -1,36 +1,17 @@
-'use strict';
+import { loaded } from 'document-promises';
 
-const availableAttributes = ['data-width', 'data-height', 'data-src'];
+customElements.define('deferred-iframe', class extends HTMLElement {
+  connectedCallback() {
+    loaded.then(() => {
+      if (!this.closest(':root')) return;
 
-class DeferedIframe extends HTMLElement {
+      const iframe = document.createElement('iframe');
 
-  constructor() {
-    super();
+      [].forEach.call(this.attributes, attr => {
+        iframe.setAttribute(attr.name, attr.value);
+      });
 
-    const iframe = document.createElement('iframe');
-    // Create shadow DOM for the component.
-    const shadowRoot = this.attachShadow({mode: 'open'});
-
-    this.setAttributes(this, iframe);
-    shadowRoot.appendChild(iframe);
-  }
-
-  setAttributes(element, iframe) {
-    // set available attributes
-    availableAttributes.forEach(function(name) {
-      const value = element.getAttribute(name);
-      const elementAttrName = name.replace('data-', '');
-
-      if (value !== undefined) {
-        iframe.setAttribute(elementAttrName, value);
-      }
+      this.appendChild(iframe);
     });
-    // set required attributes
-    element.setAttribute('allowfullscreen', '');
-    element.setAttribute('frameborder', 0);
   }
-}
-
-window.addEventListener('load', () => {
-  customElements.define('defered-iframe', DeferedIframe);
 });
