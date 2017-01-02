@@ -28,11 +28,11 @@ customElements.define('iframe-defer', class extends HTMLElement {
 
       const iframe = document.createElement('iframe');
 
-      [].forEach.call(this.attributes, attr => {
+      for (const attr of this.attributes) {
         iframe.setAttribute(attr.name, attr.value);
-      });
+      }
 
-      this.appendChild(iframe);
+      this.append(iframe);
     });
   }
 });
