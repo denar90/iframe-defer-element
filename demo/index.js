@@ -22,17 +22,24 @@ let promisify = (type, readyState) => {
 let loaded = promisify('readystatechange', /^complete$/);
 
 customElements.define('iframe-defer', class extends HTMLElement {
+  constructor() {
+    super();
+    this._iframe = document.createElement('iframe');
+  }
+
+  static get observedAttributes() {
+    return Object.keys(HTMLIFrameElement.prototype);
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    this._iframe.setAttribute(name, newValue);
+  }
+
   connectedCallback() {
     loaded.then(() => {
       if (!this.closest(':root')) return;
 
-      const iframe = document.createElement('iframe');
-
-      for (const attr of this.attributes) {
-        iframe.setAttribute(attr.name, attr.value);
-      }
-
-      this.append(iframe);
+      this.append(this._iframe);
     });
   }
 });
