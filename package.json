@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "homepage": "https://github.com/denar90/iframe-defer-element#readme",
-  "bugs": "https://github.com/denar90/defered-iframe-element/issues",
+  "bugs": "https://github.com/denar90/iframe-defer-element/issues",
   "dependencies": {
     "document-promises": "^2.0.0"
   },
